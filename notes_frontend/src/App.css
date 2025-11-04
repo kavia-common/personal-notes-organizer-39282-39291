@@ -73,6 +73,14 @@ body {
   color: var(--paper-bg);
   text-shadow: 0 2px 8px rgba(0,0,0,0.35);
 }
+.brand img {
+  max-height: 32px;
+  width: auto;
+  display: inline-block;
+}
+@media (max-width: 600px) {
+  .brand img { max-height: 24px; }
+}
 .actions {
   display: inline-flex;
   align-items: center;

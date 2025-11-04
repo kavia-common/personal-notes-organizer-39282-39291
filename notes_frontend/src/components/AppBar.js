@@ -19,9 +19,30 @@ export default function AppBar({
   searchRef,
 }) {
   /** The top bar actions and search. */
+  const onLogoError = (e) => {
+    // Graceful fallback: hide the broken image element but keep title text visible
+    e.currentTarget.style.display = "none";
+  };
+
   return (
     <header className="app-bar" role="banner">
-      <div className="brand" aria-label="Application title">
+      <div className="brand" aria-label="Application title" style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+        {/* Serve from /public/assets */}
+        <img
+          src={"/assets/logo-notepad.jpeg"}
+          alt="Old Notepad app logo"
+          width={28}
+          height={28}
+          onError={onLogoError}
+          style={{
+            width: 28,
+            height: 28,
+            objectFit: "contain",
+            borderRadius: 4,
+            boxShadow: "0 1px 2px rgba(0,0,0,0.35)",
+            background: "#ffffff",
+          }}
+        />
         <span className="brand-title">Old Notepad</span>
       </div>
 
